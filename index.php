@@ -1,6 +1,6 @@
 <?php
     include_once("header.php");
-    include_once("test.php");
+    include_once("util\DBConnection.php");
  ?>
 <div class="container-fluid">
     <div class="row product-sec1">
