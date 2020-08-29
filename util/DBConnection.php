@@ -74,8 +74,7 @@ function Create($item ){
 }
 function getProduct(){
     $conn = OpenConnection();
-	$query = "SELECT DISTINCT TOP 12 product.productid,productname,productprice,productdiscountstatus,productdiscountprice,productstatus,(SELECT TOP 1 imgname FROM img ) AS imgname FROM product JOIN img
-	ON product.productid = img.productid";
+	$query = "SELECT DISTINCT TOP 12 product.productid,productname,productprice,productdiscountstatus,productdiscountprice,productstatus FROM product ";
 	$getProducts = sqlsrv_query($conn,$query);
 	while($row = sqlsrv_fetch_array($getProducts, SQLSRV_FETCH_ASSOC))
 	{
@@ -84,8 +83,14 @@ function getProduct(){
 		$productPrice = $row['productprice'];
 		$productDiscountStatus = $row['productdiscountstatus'];
 		$productDiscountPrice = $row['productdiscountprice'];
-		$productStatus = $row['productstatus'];
-		$imgName = $row['imgname'];
+        $productStatus = $row['productstatus'];
+        $queryGetImg ="SELECT TOP 1 imgname FROM img WHERE productid = $productid";
+        $getImg = sqlsrv_query($conn,$queryGetImg);
+        if ($rowGetImg = sqlsrv_fetch_array($getImg,SQLSRV_FETCH_ASSOC))
+        {
+            $imgName = $rowGetImg['imgname'];
+        }
+        
 
 		echo "<div class=\"col-md-3 product-men\">
 		<div class=\"men-pro-item simpleCart_shelfItem\">
