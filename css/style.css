@@ -4894,6 +4894,8 @@ input[type="radio"], input[type="checkbox"] {
     } 
 }
 /* new css*/
+
+/* header */
 .menu{
     height: 50px;
     margin: 10px;
@@ -4904,12 +4906,15 @@ input[type="radio"], input[type="checkbox"] {
     text-align: center;
 
 }
+
 #menu{
     width: 100%;
     text-align: center;
     display: inline-flex;
 
+
 }
+
 .top_game{
     background-color: transparent;
     color: #000;
@@ -4971,10 +4976,9 @@ input[type="radio"], input[type="checkbox"] {
     background-color: transparent;
     color: white;
     width: 100%;
-    height: 34px;
+    height: 100%;
     padding: 1px;
     border: thin solid white;
-    border-radius: 4px;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -4983,4 +4987,203 @@ input[type="radio"], input[type="checkbox"] {
     font-size: 10px;
 }
 
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .dropdown-content {
+    /* margin-top: 20px; */
+    top: 67%;
+    padding-top: 10px;
+    left: 835px;
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    min-width: 277px;
+    list-style: none;
+    border: 1px solid #ccc;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+  
+  
+  .dropdown-content a {
+    color: black;
+    padding: 16px 17px 8px 17px;
+    text-decoration: none;
+    display: block;
+  }
+  .div-menu{
+    border-bottom: 1px solid #dbdbdb;
+    color: black;
+    text-align: center;
+    line-height: 41px;
+    border-radius: 4px;
+    margin-top: -10px;
+  }
+  
+  .dropdown-content a .div-menu{
+     background-color: #FDD835;
+     font-family: 'Roboto-Condensed' ;
+  }
+
+  .dropdown-content::before{
+    content: "";
+    position: absolute;
+    left: 132px;
+    top: -8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent rgb(239, 239, 239) transparent;
+    z-index: 9999;
+  }
+
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .btn-login:hover .dropdown-content {display: block;}
+  
+  .btn-login:hover .dropbtn {background-color: #3e8e41;}
+
+  .menu-btn{
+    width: 253px;
+    height: 48px;
+    display: inline-flex;
+  }
+  .btn-login{
+    height: 120%; width: 40%; padding: 9px; margin-right: 28px;
+  }
+
+/* footer */
+/* footer-top */
+#banner-footer{
+    background-image: url("../images/banner-1.png");
+    height: 359px;
+    text-align: center;
+    padding-top: 35px;
+}
+#font{
+    font-family: 'Roboto-Condensed';
+    font-size: 16px;
+    color: white;
+}
+
+#title-register-for-new-user{
+    padding-top: 20px;
+    width: 100%;
+    background-color:transparent;
+    height: 300px;
+}
+
+/* footer-mid */
+#footer-mid{
+    background-color: #E3E3E3;
+    height: 136px;
+    border-bottom: thin solid #b3b2b2;;
+}
+#container-col-footer{
+    height: 100%;
+}
+#row-footer-mid{
+    height: 100%;
+    background-color: transparent;
+}
+
+/* footer-bottom */
+#container-footer-bottom{
+    text-align: center;
+
+}
+#footer-bottom{
+    display: inline-flex;
+    height: 235px;;
+
+}
+#col-sm-fb{
+    height: 100%;
+    padding-top: 13px;
+    text-align: left;
+}
+#font-fb{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto-Condensed';
+    color: #000;
+    padding: 20px 0;
+}
+#div-link-fb{
+    font-family: 'Roboto-Condensed' ;
+    /* padding: 15px 0px 0px 84px; */
+}
+#link-fb{
+    text-decoration: none;
+    font-size: 13px;
+}
 /*--//responsive--*/
+/* form-dangki */
+body.login{
+    background-image: url('../images/login-bg.png');
+    height: 753px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.firts{
+   position: fixed;
+    height: 969px;
+    background-color: #000;
+    opacity: 0.7;
+}
+.second{
+    padding:0 80px; 
+}
+
+
+.container-div{
+    padding-top: 14%;
+}
+.form-group {
+    margin-bottom: 0;
+    margin-top: 1.25rem;
+}
+svg{
+    position: absolute;
+    margin-top: 12px;
+    margin-left: 15px;
+}
+.form-control{
+    padding: 0.375rem 2.75rem;
+    width: 100%;
+}
+hr{
+    border:1px solid white;
+}
+#back-go{
+    text-decoration: none;
+    font-size: 10px;
+
+}
+#btn-dangky{
+    background-color: #21BEFF;
+    border: solid 1px #21BEFF;
+    font-weight: bold;
+}
+#btn-dangky:hover{
+    border: solid 1px #21BEFF;
+    background-color: white;
+    color: #21BEFF;
+    font-weight: bold;
+
+}
+#btn-form-login{
+    font-weight: bold;
+}
