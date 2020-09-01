@@ -1475,7 +1475,6 @@ ul.w3_short li a {
 }
 .services-breadcrumb {
     padding: 0;
-    background: #eee;
     text-align: center;
 }
 .services-breadcrumb ul li i {
@@ -5186,4 +5185,8 @@ hr{
 }
 #btn-form-login{
     font-weight: bold;
+}
+.line{
+    border-top: 1px solid #757575;
+   
 }

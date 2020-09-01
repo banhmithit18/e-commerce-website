@@ -1,9 +1,4 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -25,16 +20,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--//tags -->
     <!-- <link rel="stylesheet" href="Website_BT/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
-    <!--//pop-up-box-->
-    <!-- price range -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+
+
+  	<!--pop-up-box-->
+	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+	<!--//pop-up-box-->
+	<!-- price range -->
+	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
+	<!-- flexslider -->
+	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
 
 
     <!-- fonts -->

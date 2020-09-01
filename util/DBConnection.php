@@ -72,6 +72,134 @@ function Create($item ){
         echo("Error");
     }
 }
+function getSingleProduct($productId)
+{
+    $conn = OpenConnection();
+    $query = "SELECT productname,productprice,productdiscountstatus,productdiscountprice,productstatus,productcontent FROM product WHERE productid = $productId";
+    $getProduct = sqlsrv_query($conn,$query);
+    while($row = sqlsrv_fetch_array($getProduct, SQLSRV_FETCH_ASSOC))
+    {
+            $queryGetImg = "SELECT imgname FROM img WHERE productid=$productId";
+            $getProductImg = sqlsrv_query($conn,$queryGetImg);
+            $imgNames=array();
+            while($rowGetImg = sqlsrv_fetch_array($getProductImg,SQLSRV_FETCH_ASSOC))
+            {
+                array_push($imgNames,$rowGetImg['imgname']);
+            }
+
+        $productName = $row['productname'];
+        $productPrice = $row['productprice'];
+        $productDiscountStatus = $row['productdiscountstatus'];
+        $productDiscountPrice = $row['productdiscountprice'];
+        $productStatus = $row['productstatus'];
+        $productContent = $row['productcontent'];
+    
+        
+        echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<div class="services-breadcrumb">';
+        echo '<div class="agile_inner_breadcrumb">';
+        echo '<div class="container">';
+        echo '<ul class="w3_short">';
+        echo '<li>';
+        echo '<a href="index.php">Home</a>';
+        echo '<i>|</i>';
+        echo '</li>';
+        echo "<li>$productName</li>";
+        echo '</ul>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="banner-bootom-w3-agileits">';
+        echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<!-- //tittle heading -->';
+        echo '<div class="col-4 single-right-left ">';
+        echo '<div class="grid images_3_of_2">';
+        echo"<div class=\"flexslider\">
+        <ul class=\"slides\">";
+        foreach ($imgNames as $imgName)
+        {
+            echo 
+                "   <li data-thumb=\"uploads/$imgName\">
+                        <div class=\"thumb-image\">
+                            <img src=\"uploads/$imgName\" data-imagezoom=\"true\" class=\"img-responsive\" alt=\"\">
+                        </div>
+                    </li>";
+        }
+        echo '<ul>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="col-8 single-right-left simpleCart_shelfItem ">';
+        echo "<h3>$productName</h3>";
+        echo '<div class="rating1">';
+        echo '<span class="starRating">';
+        echo '<input id="rating5" type="radio" name="rating" value="5">';
+        echo '<label for="rating5">5</label>';
+        echo '<input id="rating4" type="radio" name="rating" value="4">';
+        echo '<label for="rating4">4</label>';
+        echo '<input id="rating3" type="radio" name="rating" value="3" checked="">';
+        echo '<label for="rating3">3</label>';
+        echo '<input id="rating2" type="radio" name="rating" value="2">';
+        echo '<label for="rating2">2</label>';
+        echo '<input id="rating1" type="radio" name="rating" value="1">';
+        echo '<label for="rating1">1</label>';
+        echo '</span>';
+        echo '</div>';
+        if($productDiscountStatus == 1)
+        {
+        echo "<p>
+         <span class=\"item_price\">$productDiscountPrice VND</span>;
+         <del>$productPrice VND</del>
+         </p>";
+        }
+        else
+        {
+            echo "<p>
+            <span class=\"item_price\">$productPrice VND</span>
+            </p>";
+        }
+        echo '<div class="occasion-cart">';
+        echo '<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">';
+        echo   		
+				"
+	            	<form id=\"form$productId\" action=\"\" method=\"post\">
+						
+							<input type=\"hidden\" name=\"cmd\" value=\"_cart\" />
+							<input type=\"hidden\" name=\"add\" value=\"1\" />
+							<input type=\"hidden\" name=\"business\" value=\" \" />
+							<input type=\"hidden\" name=\"product_id\" value=\"$productId\" />
+							<input type=\"hidden\" name=\"product_name\" value=\"$productName\" />
+							<input type=\"hidden\" name=\"product_price\" value=\"$productPrice\" />
+							<input type=\"hidden\" name=\"discount_status\" value=\"$productDiscountStatus\" />
+							<input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
+							<input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
+							<input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
+							<input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
+					</form>";
+				
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="clearfix"> </div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<br>';
+        echo '<div class="row line">';
+        echo '<div>Chi tiết sản phẩm </div>';
+        echo '<br>';
+        
+         $myfile = fopen("uploads/$productContent", "r") or die("Unable to open file!");;
+         echo fread($myfile,filesize("uploads/$productContent"));;
+         fclose($myfile);;
+        
+        echo '</div>';
+        echo '</div>';
+    }
+}
 function getProduct(){
     $conn = OpenConnection();
 	$query = "SELECT DISTINCT TOP 12 product.productid,productname,productprice,productdiscountstatus,productdiscountprice,productstatus FROM product ";
@@ -98,14 +226,14 @@ function getProduct(){
 				<img src=\"uploads/$imgName\" alt=\"\">
 				<div class=\"men-cart-pro\">
 					<div class=\"inner-men-cart-pro\">
-						<a href=\"single.html\" class=\"link-product-add-cart\">Quick View</a>
+						<a id=\"$productid\" href=\"single.php?product_id={$productid}\" class=\"link-product-add-cart product-detail\">Quick View</a>
 					</div>
 				</div>
-				<span class=\"product-new-top\">New</span>
+				<span class=\"product-new-top\" >New</span>
 			</div>
 			<div class=\"item-info-product \">
 				<h4>
-					<a href=\"single.html\">$productName</a>
+					<a id=\"$productid\" href=\"single.php\">$productName</a>
 				</h4>";
 				if($productDiscountStatus == 1)
 				{
@@ -124,8 +252,8 @@ function getProduct(){
 				}
 		echo   		
 				"<div class=\"snipcart-details top_brand_home_details item_add single-item hvr-outline-out\">
-					<form action=\"#\" method=\"post\">
-						<fieldset>
+					<form id=\"form$productid\" action=\"\" method=\"post\">
+						
 							<input type=\"hidden\" name=\"cmd\" value=\"_cart\" />
 							<input type=\"hidden\" name=\"add\" value=\"1\" />
 							<input type=\"hidden\" name=\"business\" value=\" \" />
@@ -136,10 +264,7 @@ function getProduct(){
 							<input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
 							<input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
 							<input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
-							<input type=\"hidden\" name=\"return\" value=\" \" />
-							<input type=\"hidden\" name=\"cancel_return\" value=\" \" />
 							<input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
-						</fieldset>
 					</form>
 				</div>
 	
