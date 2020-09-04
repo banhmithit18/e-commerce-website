@@ -167,17 +167,26 @@ function getSingleProduct($productId)
 				"
 	            	<form id=\"form$productId\" action=\"\" method=\"post\">
 						
-							<input type=\"hidden\" name=\"cmd\" value=\"_cart\" />
-							<input type=\"hidden\" name=\"add\" value=\"1\" />
-							<input type=\"hidden\" name=\"business\" value=\" \" />
-							<input type=\"hidden\" name=\"product_id\" value=\"$productId\" />
-							<input type=\"hidden\" name=\"product_name\" value=\"$productName\" />
-							<input type=\"hidden\" name=\"product_price\" value=\"$productPrice\" />
-							<input type=\"hidden\" name=\"discount_status\" value=\"$productDiscountStatus\" />
-							<input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
-							<input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
-							<input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
-							<input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
+                    <input type=\"hidden\" name=\"cmd\" value=\"_cart\" />
+                    <input type=\"hidden\" name=\"add\" value=\"1\" />
+                    <input type=\"hidden\" name=\"business\" value=\" \" />
+                    <input type=\"hidden\" name=\"product_id\" value=\"$productId\" />
+                    <input type=\"hidden\" name=\"item_name\" value=\"$productName\" />";
+                    if($productDiscountStatus == 0)
+                    {
+                    echo
+                    "<input type=\"hidden\" name=\"amount\" value=\"$productPrice\" />";
+                    }
+                    else
+                    {echo "
+                    <input type=\"hidden\" name=\"discount_status\" value=\"$productDiscountStatus\" />";
+                    }
+                    echo
+                    "
+                    <input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
+                    <input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
+                    <input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
+                    <input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
 					</form>";
 				
         echo '</div>';
@@ -233,7 +242,7 @@ function getProduct(){
 			</div>
 			<div class=\"item-info-product \">
 				<h4>
-					<a id=\"$productid\" href=\"single.php\">$productName</a>
+					<a id=\"$productid\" href=\"single.php?product_id={$productid}\">$productName</a>
 				</h4>";
 				if($productDiscountStatus == 1)
 				{
@@ -252,29 +261,32 @@ function getProduct(){
 				}
 		echo   		
 				"<div class=\"snipcart-details top_brand_home_details item_add single-item hvr-outline-out\">
-					<form id=\"form$productid\" action=\"\" method=\"post\">
+					<form id=\"form$productid\" action=\"\" method=\"post\" >
 						
 							<input type=\"hidden\" name=\"cmd\" value=\"_cart\" />
 							<input type=\"hidden\" name=\"add\" value=\"1\" />
 							<input type=\"hidden\" name=\"business\" value=\" \" />
 							<input type=\"hidden\" name=\"product_id\" value=\"$productid\" />
-							<input type=\"hidden\" name=\"product_name\" value=\"$productName\" />
-							<input type=\"hidden\" name=\"product_price\" value=\"$productPrice\" />
-							<input type=\"hidden\" name=\"discount_status\" value=\"$productDiscountStatus\" />
-							<input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
+                            <input type=\"hidden\" name=\"item_name\" value=\"$productName\" />";
+                            if($productDiscountStatus == 0)
+                            {
+                            echo
+                            "<input type=\"hidden\" name=\"amount\" value=\"$productPrice\" />";
+                            }
+                            else
+                            {echo "
+                            <input type=\"hidden\" name=\"discount_status\" value=\"$productDiscountStatus\" />";
+                            }
+                            echo
+                            "<input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
 							<input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
 							<input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
-							<input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
+							<input type=\"submit\" name=\"submit\" value=\"Add to cart\" href=\"#myModal\" class=\"button trigger-btn\" data-toggle=\"modal\" />
 					</form>
 				</div>
-	
 			</div>
 		</div>
 	</div>";
 	}
-}
-
- 
-
-   
+}   
  ?>

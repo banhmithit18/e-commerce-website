@@ -2882,7 +2882,7 @@ View.prototype.bind = function bind(form) {
  */
 View.prototype.addItem = function addItem(idx, data) {
     this.redraw();
-    this.show();
+    // this.show(); show khi add
 
     var els = this.el.querySelectorAll('.' + constants.ITEM_CLASS);
     css.add(els[idx], constants.ITEM_CHANGED_CLASS);
@@ -2897,7 +2897,7 @@ View.prototype.addItem = function addItem(idx, data) {
  */
 View.prototype.changeItem = function changeItem(idx, data) {
     this.redraw();
-    this.show();
+    //this.show(); show khi them
 
     var els = this.el.querySelectorAll('.' + constants.ITEM_CLASS);
     css.add(els[idx], constants.ITEM_CHANGED_CLASS);
@@ -2999,6 +2999,7 @@ module.exports = viewevents = {
             }
 
             // Do the initial render when the buttons are ready
+  
             this.redraw();
 
             // Only run this once

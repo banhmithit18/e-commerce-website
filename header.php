@@ -22,11 +22,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- <link rel="stylesheet" href="Website_BT/css/bootstrap.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="css\style.css">
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
         integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+        
+    <link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
+    <link rel="stylesheet" href="css\style.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
   	<!--pop-up-box-->
 	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
@@ -74,8 +86,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="cart">
                 <div class="cart-button">
-                    <i class="fa fa-cart-arrow-down"></i>
-                    <a href="#" style="margin-left: 5px;" id="menu-link">Giỏ hàng</a>
+                    <form action="#" method="post" class="last">
+                        <input type="hidden" name="cmd" value="_cart">
+                        <input type="hidden" name="display" value="1">
+                        <i class="fa fa-cart-arrow-down"></i>
+                        <button href="#" class="w3view-cart" style="background: transparent;font-size:12px" type="submit" name="submit" >Giỏ hàng</button>
+                    </form>
                 </div>
             </div>
         </div>
