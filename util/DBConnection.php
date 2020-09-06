@@ -206,7 +206,8 @@ function getSingleProduct($productId)
                     <input type=\"hidden\" name=\"discount_price\" value=\"$productDiscountPrice\" />
                     <input type=\"hidden\" name=\"product_status\" value=\"$productStatus\" />
                     <input type=\"hidden\" name=\"currency_code\" value=\"VND\" />
-                    <input type=\"submit\" name=\"submit\" value=\"Add to cart\" class=\"button\" />
+                    <input type=\"submit\" name=\"submit\" value=\"Add to cart\" href=\"#myModal\" class=\"button trigger-btn\" data-toggle=\"modal\" />
+
 					</form>";
 				
         echo '</div>';

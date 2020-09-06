@@ -20,6 +20,24 @@ else
     header("location:index.php");
 }
 ?>
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box-check">
+					<i class="material-icons">&#xE876;</i>
+				</div>				
+				<h4 class="modal-title w-100">Thành công!</h4>	
+			</div>
+			<div class="modal-body">
+				<p class="text-center">Đã thêm vào giỏ hàng.</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+			</div>
+		</div>
+    </div>
+</div>
 <div class="footer-mid">
     <div class="container-fluild" id="footer-mid">
         <div class="container col-9 centerPage" id="container-col-footer">
