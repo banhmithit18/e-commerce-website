@@ -158,7 +158,7 @@ $(document).ready(function() {
 <script src="js/minicart.js"></script>
 <script>
 paypalm.minicartk
-.render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
+    .render(); //use only unique class names other than paypal1.minicart1.Also Replace same class name in css and minicart.min.js
 
 paypalm.minicartk.cart.on('checkout', function(evt) {
     var items = this.items(),
@@ -172,12 +172,38 @@ paypalm.minicartk.cart.on('checkout', function(evt) {
     }
 });
 </script>
-<script>
-   paypalm.minicart.cart.items().forEach(
-   console.log.bind(console));
-</script>
 <!-- //cart-js -->
+<!-- <script>
+$(Document).ready(function() {
 
+    $('#minicartk-checkout').click(function() {
+        var cartlength =  paypalm.minicartk.cart.items().length;
+
+        $.ajax({
+                type: 'POST',
+                data: {
+                 length: cartlength
+                }
+            })
+            .done(function(data) {
+                alert(data)
+             
+
+
+            })
+            .fail(function() {
+
+                // just in case posting your form failed
+                alert("Posting failed.");
+
+            });
+
+        // to prevent refreshing the whole page page
+        return false;
+
+    });
+})
+</script> -->
 <!-- password-script -->
 <script>
 window.onload = function() {
@@ -282,6 +308,7 @@ $(window).load(function() {
 
 });
 </script>
+
 <!-- //flexisel (for special offers) -->
 
 <!-- for bootstrap working -->

@@ -5264,3 +5264,6 @@ hr{
 	display: inline-block;
 	margin: 100px auto;
 }
+.border-sanpham{
+    border: solid 1px lightgray;
+}

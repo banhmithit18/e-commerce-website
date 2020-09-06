@@ -19,7 +19,8 @@
         {
             echo "Error";
         }return null;
-    }
+    }   
+
 function Create($item ){
     try{
         $conn = OpenConnection();
@@ -70,6 +71,25 @@ function Create($item ){
     catch (Exception $e)
     {
         echo("Error");
+    }
+}
+function getProductValue($valueName,$productName)
+{
+    $conn = OpenConnection();
+   
+    if($valueName == "imgname")
+    {
+        $query = "SELECT TOP 1 imgname FROM img JOIN product ON product.productid = img.productid WHERE productname='$productName'";
+
+    }
+    else
+    {
+        $query = "SELECT  $valueName FROM product  WHERE productname='$productName'";
+    }
+    $getImg = sqlsrv_query($conn,$query);
+    if($row = sqlsrv_fetch_array($getImg, SQLSRV_FETCH_ASSOC))
+    {
+        return $row[$valueName];
     }
 }
 function getSingleProduct($productId)

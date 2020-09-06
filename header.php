@@ -32,6 +32,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
+
+
     <link rel="stylesheet" href="css\style.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -39,14 +41,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
   	<!--pop-up-box-->
 	<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 	<!--//pop-up-box-->
 	<!-- price range -->
 	<link rel="stylesheet" type="text/css" href="css/jquery-ui1.css">
-	<!-- flexslider -->
+    <!-- flexslider -->
+    <link rel="stylesheet" href="js\jquery.flexisel.js">
 	<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+
 
 
     <!-- fonts -->
